@@ -10,11 +10,10 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  { ignores: ['.next/**', 'out/**', 'build/**', 'next-env.d.ts'] },
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
   {
     plugins: {
-      prettier: (await import('eslint-plugin-prettier')).default,
+      prettier: await import('eslint-plugin-prettier'),
     },
     rules: {
       'prettier/prettier': 'error',
